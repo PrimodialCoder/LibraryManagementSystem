@@ -7,7 +7,7 @@ public abstract class User {
 
     public static int totalUsers = 0;
 
-    public static int getTotalUsers() {
+    public final int getTotalUsers() {
         return totalUsers;
     }
 
@@ -21,9 +21,10 @@ public abstract class User {
         return this.contactInfo;
     }
 
-    void setUserId(String userId) {
-        this.userId = userId;
-    }
+    //no need to set userId as it is generated automatically
+//    void setUserId(String userId) {
+//        this.userId = userId;
+//    }
     void setName(String name) {
         this.name = name;
     }
@@ -33,10 +34,12 @@ public abstract class User {
 
     // Non parameterized constructor to generate unique user id using generateUniqueId() method
     public User(){
+        totalUsers++;
         this.userId = generateUniqueId();
     }
     // Parameterized constructor to set name and contact info
     public User(String name, String contactInfo){
+        totalUsers++;
         this.userId = generateUniqueId();
         this.name = name;
         this.contactInfo = contactInfo;
@@ -44,13 +47,14 @@ public abstract class User {
 
     // Copy constructor to copy user object
     public User(User user){
-        this.userId = user.generateUniqueId();
+        totalUsers++;
+        this.userId = user.generateUniqueId();//Important: This will generate a new unique id for the copied user object
         this.name = user.getName();
         this.contactInfo = user.getContactInfo();
     }
-    String generateUniqueId(){
-        String uniqueString = " ";
-        return uniqueString;
+
+    private String generateUniqueId(){
+        return "user-" + totalUsers;
     }
     //Abstract method to display dashboard and check if user can borrow books
     public abstract void displayDashboard();

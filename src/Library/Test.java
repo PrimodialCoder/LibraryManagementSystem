@@ -7,5 +7,9 @@ public class Test {
 //        User u2 = new User(u1);
 //        System.out.println(u1.getName());
 //        System.out.println(u2.getName());
+        User m = new Member("John", "1234567890");
+        User l = new Librarian("Jane", "0987654321", "1234");
+        m.displayDashboard();
+        l.displayDashboard();
     }
 }
