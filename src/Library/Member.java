@@ -4,7 +4,7 @@ import java.sql.SQLOutput;
 
 public class Member extends User{
     private int borrowedBooksCount;
-    protected final int MAX_BORROW_LIMIT = 5;
+    private final static int MAX_BORROW_LIMIT = 5;
 
     //constructor non parameterized
     public Member() {
@@ -22,11 +22,13 @@ public class Member extends User{
     @Override
     public void displayDashboard() {
 
+        System.out.println("**************** Dashboard of " +getName()+ " ******************");
         System.out.println("Member Dashboard");
         System.out.println("Member UUID: " + getUserId());
         System.out.println("Name: " + getName());
         System.out.println("Contact Info: " + getContactInfo());
         System.out.println("Borrowed Books: " + borrowedBooksCount);
+        System.out.println("**********************************");
     }
 
     //override method canBorrowBooks from abstract user class

@@ -1,5 +1,7 @@
 package Library;
 
+import static Library.User.totalUsers;
+
 public class Test {
     public static void main(String[] args) {
 //        User u = new User();
@@ -11,5 +13,9 @@ public class Test {
         User l = new Librarian("Jane", "0987654321", "1234");
         m.displayDashboard();
         l.displayDashboard();
+        System.out.println("Total users are " + totalUsers);
+        dummy d = new dummy();
+        d.returnBook(m);
+        d.lend(l);
     }
 }
