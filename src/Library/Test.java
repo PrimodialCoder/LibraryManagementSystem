@@ -14,8 +14,20 @@ public class Test {
         m.displayDashboard();
         l.displayDashboard();
         System.out.println("Total users are " + totalUsers);
-        dummy d = new dummy();
-        d.returnBook(m);
-        d.lend(l);
+//        dummy d = new dummy();
+//        d.returnBook(m);
+//        d.lend(l);
+
+        Book b = new TextBook("1234", "Java", "James", "Programming", 5);
+        b.lend(m);
+//        b.returnBook(m);
+        b.lend(l);
+        b.returnBook(l);
+        b.displayBookDetails();
+        Book b1 = new NovelBook("5678", "Harry Potter", "JK Rowling", "Fantasy");
+        b1.lend(m);
+        b1.lend(l);
+        b1.displayBookDetails();
+//        b1.returnBook(m);
     }
 }
